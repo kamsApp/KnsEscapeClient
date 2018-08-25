@@ -1,0 +1,45 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #navbar mode="side" class="navbar" [ngStyle]="{ 'width.em': navbarWidth }" opened="true" (mouseenter)="increase()"
+               (mouseleave)="decrease()">
+
+    <mat-nav-list>
+
+      <mat-list-item routerLink="home" routerLinkActive="active" >
+        <mat-icon mat-list-icon>home</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="navbarWidth > 6" class="navbar-item">
+          <h5>Accueil</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="states" >
+        <mat-icon mat-list-icon>error_outline</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="navbarWidth > 6" class="navbar-item">
+          <h5>Statut</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="3" >
+        <mat-icon mat-list-icon>build</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="navbarWidth > 6" class="navbar-item">
+          <h5>Paramètres</h5>
+        </div>
+      </mat-list-item>
+
+
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <div class="navbar-content">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</mat-sidenav-container>
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
