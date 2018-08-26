@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Status } from '../models/status';
+import { StateItem } from '../models/state-item';
+import { StateSlave } from '../models/state-slave';
+import { StatesService } from '../services/states.service';
 
 @Component({
   selector: 'app-state',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public stateService: StatesService) {
+  }
+
+  displayedColumns: string[] = ['id', 'name', 'state'];
+  items: StateItem[];
+  slaves: StateSlave[];
+
 
   ngOnInit() {
+    this.stateService.getModulesStatus()
+      .subscribe(
+        data => {
+          this.items = data.items ;
+          this.slaves = data.slaves;
+        },
+        err => {
+          console.log(err) ;
+        }) ;
   }
 
 }

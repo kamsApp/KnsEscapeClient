@@ -12,18 +12,21 @@ import {
   MatIconModule,
   MatIconRegistry,
   MatListModule,
-  MatButtonModule
+  MatButtonModule,
+  MatTableModule
 } from '@angular/material';
 import { StateComponent } from './state/state.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { ParametersComponent } from './parameters/parameters.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo:'/home', pathMatch: 'full' },
-  { path: '**', redirectTo:'/home' },
   { path: 'home', component: HomeComponent},
-  { path: 'states', component: StateComponent}
+  { path: 'states', component: StateComponent},
+  { path: 'parameters', component: ParametersComponent},
+  { path: '**', redirectTo:'/home' },
 ];
 
 @NgModule({
@@ -31,7 +34,8 @@ const appRoutes: Routes = [
     AppComponent,
     StateComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ParametersComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
+    MatTableModule,
     MatIconModule,
     MatButtonModule,
     RouterModule.forRoot(
